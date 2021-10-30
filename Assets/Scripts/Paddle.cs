@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
+    [Header("Basic Paddle")] 
     [SerializeField] KeyCode inputMoveUp;
     [SerializeField] KeyCode inputMoveDown;
     [SerializeField] float paddleSpeed = 2000.0f;
+
+    [Header("AI Paddle")]
+    [SerializeField] bool useAI = false;
+    [SerializeField] float paddleSpeedAI = 2000.0f;
+    [SerializeField] Transform targetToTrack;
 
     private Rigidbody2D rigidBodyPaddle;
 
@@ -19,18 +25,30 @@ public class Paddle : MonoBehaviour
     {
         var paddleVelocity = rigidBodyPaddle.velocity;
 
-        if (Input.GetKey(inputMoveUp))
+        if (!useAI)
         {
-            paddleVelocity.y = paddleSpeed;
-        }
-        else if (Input.GetKey(inputMoveDown))
-        {
-            paddleVelocity.y = -paddleSpeed;
+            if (Input.GetKey(inputMoveUp))
+            {
+                paddleVelocity.y = paddleSpeed;
+            }
+            else if (Input.GetKey(inputMoveDown))
+            {
+                paddleVelocity.y = -paddleSpeed;
+            }
+            else
+            {
+                paddleVelocity.y = 0;
+            }
         }
         else
         {
-            paddleVelocity.y = 0;
+            float timeDeltaPaddleSpeed = paddleSpeedAI * Time.deltaTime;
+
+            rigidBodyPaddle.transform.position = Vector2.MoveTowards(rigidBodyPaddle.transform.position,
+                new Vector2(rigidBodyPaddle.position.x, targetToTrack.position.y), timeDeltaPaddleSpeed);
         }
+
+
 
         rigidBodyPaddle.velocity = paddleVelocity;
     }

@@ -312,6 +312,9 @@ MonoBehaviour:
   inputMoveUp: 119
   inputMoveDown: 115
   paddleSpeed: 2000
+  useAI: 0
+  paddleSpeedAI: 2000
+  targetToTrack: {fileID: 0}
 --- !u!114 &452809342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,6 +573,9 @@ MonoBehaviour:
   inputMoveUp: 273
   inputMoveDown: 274
   paddleSpeed: 2000
+  useAI: 1
+  paddleSpeedAI: 2000
+  targetToTrack: {fileID: 1550967740}
 --- !u!114 &549309582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -967,7 +973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d729ac6f4a33b704da227044a92740c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballSpeed: 250
+  ballSpeed: 750
   isLaunched: 0
 --- !u!114 &1550967744
 MonoBehaviour:
