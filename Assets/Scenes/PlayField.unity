@@ -309,6 +309,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ed4461a12f8bd4fb29517215f2c750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputMoveUp: 119
+  inputMoveDown: 115
+  paddleSpeed: 2000
 --- !u!114 &452809342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,6 +567,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ed4461a12f8bd4fb29517215f2c750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputMoveUp: 273
+  inputMoveDown: 274
+  paddleSpeed: 2000
 --- !u!114 &549309582
 MonoBehaviour:
   m_ObjectHideFlags: 0

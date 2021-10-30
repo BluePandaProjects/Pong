@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] KeyCode inputMoveUp;
+    [SerializeField] KeyCode inputMoveDown;
+    [SerializeField] float paddleSpeed = 2000.0f;
+
+    private Rigidbody2D rigidBodyPaddle;
+
+    private void Awake()
     {
-        
+        rigidBodyPaddle = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        var paddleVelocity = rigidBodyPaddle.velocity;
+
+        if (Input.GetKey(inputMoveUp))
+        {
+            paddleVelocity.y = paddleSpeed;
+        }
+        else if (Input.GetKey(inputMoveDown))
+        {
+            paddleVelocity.y = -paddleSpeed;
+        }
+        else
+        {
+            paddleVelocity.y = 0;
+        }
+
+        rigidBodyPaddle.velocity = paddleVelocity;
     }
 }
