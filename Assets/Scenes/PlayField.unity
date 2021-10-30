@@ -270,7 +270,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!61 &452809340
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -525,7 +525,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!61 &549309580
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -921,7 +921,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1550967739}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 095bde871ff3cd442b496e5deea2c128, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -961,7 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d729ac6f4a33b704da227044a92740c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballSpeed: 150
+  ballSpeed: 250
   isLaunched: 0
 --- !u!114 &1550967744
 MonoBehaviour:
