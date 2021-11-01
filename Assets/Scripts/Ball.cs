@@ -32,4 +32,10 @@ public class Ball : MonoBehaviour
 
         rigidBodyBall.velocity = new Vector2(x, y).normalized * ballSpeed;
     }
+
+    public void ResetBall()
+    {
+        rigidBodyBall.velocity = Vector2.zero;
+        rigidBodyBall.position = new Vector2(980, 480);
+    }
 }
