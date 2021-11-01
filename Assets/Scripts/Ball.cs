@@ -36,11 +36,15 @@ public class Ball : MonoBehaviour
     public void ResetBall()
     {
         rigidBodyBall.velocity = Vector2.zero;
-        rigidBodyBall.position = new Vector2(980, 480);
+        rigidBodyBall.position = new Vector2(960.0f, 540.0f);
+
+        isLaunched = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("GOAL!");
+
+        ResetBall();
     }
 }
