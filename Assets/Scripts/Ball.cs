@@ -38,4 +38,9 @@ public class Ball : MonoBehaviour
         rigidBodyBall.velocity = Vector2.zero;
         rigidBodyBall.position = new Vector2(980, 480);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("GOAL!");
+    }
 }
