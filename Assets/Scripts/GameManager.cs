@@ -17,8 +17,6 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-
-        //ball = GetComponent<Ball>();
     }
 
     public void ScorePoint(ScoringPaddle scoringPaddle)

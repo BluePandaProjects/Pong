@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     [SerializeField] float ballSpeed = 50.0f;
+    [SerializeField] int startCountDown = 3;
 
     private Rigidbody2D rigidBodyBall;
 
@@ -17,7 +18,7 @@ public class Ball : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey("space") && !isLaunched) 
+        if (!isLaunched)
         {
             LaunchBall();
         }
@@ -25,12 +26,15 @@ public class Ball : MonoBehaviour
 
     private void LaunchBall()
     {
-        isLaunched = true;
+        for (int startTimer = startCountDown; startTimer > 0; startTimer--)
+        {
+            isLaunched = true;
 
-        float x = Random.Range(0, 2) == 0 ? -1 : 1;
-        float y = Random.Range(0, 2) == 0 ? -1 : 1;
+            float x = Random.Range(0, 2) == 0 ? -1 : 1;
+            float y = Random.Range(0, 2) == 0 ? -1 : 1;
 
-        rigidBodyBall.velocity = new Vector2(x, y).normalized * ballSpeed;
+            rigidBodyBall.velocity = new Vector2(x, y).normalized * ballSpeed;
+        }        
     }
 
     public void ResetBall()
@@ -43,7 +47,14 @@ public class Ball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("GOAL!");
+        if (collision.tag == "GoalLeft")
+        {
+            GameManager.instance.ScorePoint(ScoringPaddle.PaddleRight);
+        }
+        else if (collision.tag == "GoalRight")
+        {
+            GameManager.instance.ScorePoint(ScoringPaddle.PaddleLeft);
+        }
 
         ResetBall();
     }
