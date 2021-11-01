@@ -1052,6 +1052,7 @@ MonoBehaviour:
   scorePaddleRightText: {fileID: 1606717418}
   scorePaddleLeft: 0
   scorePaddleRight: 0
+  winningScoreValue: 3
 --- !u!4 &1538128829
 Transform:
   m_ObjectHideFlags: 0
