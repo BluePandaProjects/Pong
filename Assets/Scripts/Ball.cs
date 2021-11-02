@@ -8,12 +8,14 @@ public class Ball : MonoBehaviour
     [SerializeField] int startCountDown = 3;
 
     private Rigidbody2D rigidBodyBall;
+    private AudioSource paddleCollisionlAudio;
 
     public bool isLaunched = false;
 
     private void Awake()
     {
         rigidBodyBall = GetComponent<Rigidbody2D>();
+        paddleCollisionlAudio = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -43,6 +45,14 @@ public class Ball : MonoBehaviour
         rigidBodyBall.position = new Vector2(960.0f, 540.0f);
 
         isLaunched = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Paddle")
+        {
+            paddleCollisionlAudio.Play();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
