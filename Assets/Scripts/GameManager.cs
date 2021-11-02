@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -39,11 +40,12 @@ public class GameManager : MonoBehaviour
 
         if (GameOver(scoringPaddle))
         {
+            SceneManager.LoadScene("GameOver");
 
-            Debug.Log("Congratulations " + scoringPaddle.ToString());
+            //Debug.Log("Congratulations " + scoringPaddle.ToString());
 
-            GameManager.instance.scorePaddleLeft = 0;
-            GameManager.instance.scorePaddleRight = 0;
+            //GameManager.instance.scorePaddleLeft = 0;
+            //GameManager.instance.scorePaddleRight = 0;
         }
     }
 
